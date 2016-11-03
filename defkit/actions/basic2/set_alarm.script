@@ -1,0 +1,19 @@
+go.property("event", msg.url())
+
+go.property("alarm_nr", 0)
+go.property("seconds", 0)
+
+go.property("anim_param_dont_touch", 0)
+
+local function invoke_alarm(self)
+	msg.post(",", "invoke_alarm", {alarm_nr=alarm_nr})
+end
+
+function on_message(self, message_id, message, sender)
+	if sender == self.event then
+		go.animate("#","anim_param_dont_touch",
+			go.PLAYBACK_ONCE_FORWARD, 1, go.EASING_LINEAR,
+			self.seconds, 0,
+			invoke_alarm)
+	end
+end

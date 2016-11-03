@@ -1,0 +1,3 @@
+function update(self, dt)
+	msg.post(".","do_actions")
+end
