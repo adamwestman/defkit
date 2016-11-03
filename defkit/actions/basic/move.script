@@ -15,7 +15,7 @@ go.property("SE", false)
 
 go.property("speed_var", hash("WIP"))
 go.property("speed_val", 0)
-go.property("relative", 0)
+go.property("relative", false)
 
 --- TARGETTING PROPERTIES
 go.property("target_self", false)
@@ -26,7 +26,7 @@ function init(self)
 	local directions = {}
 
 	if self.NW then
-		table.insert(directions, vmath.vector3(1, 1, 0))
+		table.insert(directions, vmath.vector3(-1, 1, 0))
 	end
 
 	if self.N then
@@ -34,19 +34,19 @@ function init(self)
 	end
 
 	if self.NE then
-		table.insert(directions, vmath.vector3(-1, 1, 0))
+		table.insert(directions, vmath.vector3(1, 1, 0))
 	end
 
 	if self.W then
-		table.insert(directions, vmath.vector3(1, 0, 0))
-	end
-
-	if self.E then
 		table.insert(directions, vmath.vector3(-1, 0, 0))
 	end
 
+	if self.E then
+		table.insert(directions, vmath.vector3(1, 0, 0))
+	end
+
 	if self.SW then
-		table.insert(directions, vmath.vector3(1, -1, 0))
+		table.insert(directions, vmath.vector3(-1, -1, 0))
 	end
 
 	if self.S then
@@ -54,7 +54,7 @@ function init(self)
 	end
 
 	if self.SE then
-		table.insert(directions, vmath.vector3(-1, -1, 0))
+		table.insert(directions, vmath.vector3(1, -1, 0))
 	end
 
 	self.directions = directions
@@ -63,8 +63,9 @@ end
 local function get_force(self)
 	-- random between selected directions.
 	if next(self.directions) then
-		local direction = self.directions[math.random(#self.directions)]
-		return direction * self.speed
+		local option = math.random(#self.directions)
+		local direction = self.directions[option]
+		return direction * self.speed_val
 	else
 		return vmath.vector3(0)
 	end

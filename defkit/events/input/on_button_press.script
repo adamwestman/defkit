@@ -1,5 +1,4 @@
 go.property("action_id", hash(""))
-go.property("target_group", hash("on_button_pressed"))
 
 function init(self)
 	msg.post(".", "acquire_input_focus")
@@ -11,6 +10,6 @@ end
 
 function on_input(self, action_id, action)
 	if action_id == self.action_id and action.pressed then
-		msg.post(".", hash("do_actions"), {target_group=self.target_group})
+		msg.post(".", hash("do_actions"))
 	end
 end

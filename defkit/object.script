@@ -1,0 +1,31 @@
+--local lookup = require("defkit.internal.lookup")
+
+go.property("type", hash("WIP-will-be-used-by-lookup"))
+
+function init(self)
+	-- lookup.add_object_by_type(self.type, go.get_id())
+	
+	self.velocity = vmath.vector3(0)
+end
+
+function final(self)
+	-- lookup.remove_object(go.get_id())
+end
+
+function update(self, dt)
+	if vmath.length_sqr(self.velocity) > 0 then
+		local pos = go.get_position()
+		pos = pos + self.velocity * dt
+		go.set_position(pos)
+	end
+end
+
+function on_message(self, message_id, message, sender)
+	if message_id == hash("set_movement") then
+		if message.relative then
+			self.velocity = message.velocity + self.velocity
+		else
+			self.velocity = message.velocity
+		end	
+	end
+end
