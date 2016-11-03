@@ -1,0 +1,3 @@
+function final(self)
+	msg.post(".", hash("do_actions"))
+end

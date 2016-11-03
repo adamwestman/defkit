@@ -1,0 +1,26 @@
+-- lookup = require "internal.lookup"
+
+--- DEFAULT ACTION PROPERTIES
+go.property("event", msg.url())
+
+--- CUSTOM ACTION PROPERTIES
+go.property("factory", msg.url())
+
+go.property("position_var", hash("WIP"))
+go.property("position_val", vmath.vector3(0))
+go.property("relative", false)
+
+--- TARGETTING PROPERTIES
+--go.property("target_self", false)
+--go.property("target_other", false)
+--go.property("target_type", hash(""))
+
+function on_message(self, message_id, message, sender)
+	if sender == self.event then
+		local position = vmath.vector3(self.position_val)
+		if self.relative then
+			position = position + go.get_world_position()
+		end
+		factory.create(self.factory, position)
+	end
+end
