@@ -1,8 +1,8 @@
-go.property("alarm_nr, 0)
+go.property("alarm_nr", 0)
 
 function on_message(self, message_id, message, sender)
 	if message_id == hash("invoke_alarm")
 	and message.alarm_nr == self.alarm_nr then
-		msg.post(".", hash("do_actions")	
+		msg.post(".", hash("do_actions"))
 	end
 end
