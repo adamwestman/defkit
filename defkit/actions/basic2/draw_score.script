@@ -1,0 +1,23 @@
+local lookup = require("defkit.internal.lookup")
+
+--- DEFAULT ACTION PROPERTIES
+go.property("event", msg.url())
+
+--- CUSTOM ACTION PROPERTIES
+go.property("x_var", hash(""))
+go.property("x_val", 0)
+
+go.property("y_var", hash(""))
+go.property("y_val", 0)
+
+function on_message(self, action_id, action, sender)
+	if sender == self.event then
+		local score_value = lookup.get_variable(hash("score"), 0)
+
+		local x_value = lookup.get_variable(self.x_var, self.x_val)
+		local y_value = lookup.get_variable(self.y_var, self.y_val)
+
+		local draw_pos = vmath.vector3(x_value, y_value, 0)
+		msg.post("@render:", "draw_text", { text = string.format("Score: %d", score_value), position = draw_pos } )
+	end
+end

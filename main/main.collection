@@ -1,167 +1,11 @@
 name: "main"
-scale_along_z: 0
-embedded_instances {
-  id: "go"
-  data: "components {\n"
-  "  id: \"on_left_pressed\"\n"
-  "  component: \"/defkit/events/input/on_button_press.script\"\n"
-  "  position {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
-  "}\n"
-  "components {\n"
-  "  id: \"move_right\"\n"
-  "  component: \"/defkit/actions/basic/move.script\"\n"
-  "  position {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
-  "}\n"
-  "components {\n"
-  "  id: \"obj1\"\n"
-  "  component: \"/defkit/object.script\"\n"
-  "  position {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
-  "}\n"
-  "components {\n"
-  "  id: \"move_left\"\n"
-  "  component: \"/defkit/actions/basic/move.script\"\n"
-  "  position {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
-  "}\n"
-  "components {\n"
-  "  id: \"move_down\"\n"
-  "  component: \"/defkit/actions/basic/move.script\"\n"
-  "  position {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
-  "}\n"
-  "components {\n"
-  "  id: \"move_up\"\n"
-  "  component: \"/defkit/actions/basic/move.script\"\n"
-  "  position {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
-  "}\n"
-  "components {\n"
-  "  id: \"on_right_pressed\"\n"
-  "  component: \"/defkit/events/input/on_button_press.script\"\n"
-  "  position {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
-  "}\n"
-  "components {\n"
-  "  id: \"on_up_pressed\"\n"
-  "  component: \"/defkit/events/input/on_button_press.script\"\n"
-  "  position {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
-  "}\n"
-  "components {\n"
-  "  id: \"on_down_pressed\"\n"
-  "  component: \"/defkit/events/input/on_button_press.script\"\n"
-  "  position {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
-  "}\n"
-  "embedded_components {\n"
-  "  id: \"sprite\"\n"
-  "  type: \"sprite\"\n"
-  "  data: \"tile_set: \\\"/main/logo.atlas\\\"\\n"
-  "default_animation: \\\"logo\\\"\\n"
-  "material: \\\"/builtins/materials/sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
-  "\"\n"
-  "  position {\n"
-  "    x: 640.0\n"
-  "    y: 360.0\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
-  "}\n"
-  ""
+instances {
+  id: "player"
+  prototype: "/main/player.go"
   position {
-    x: 0.0
-    y: 0.0
-    z: 0.0
+    x: 640.0
+    y: 400.0
+    z: 0.1
   }
   rotation {
     x: 0.0
@@ -170,127 +14,16 @@ embedded_instances {
     w: 1.0
   }
   component_properties {
-    id: "on_left_pressed"
+    id: "draw_score"
     properties {
-      id: "action_id"
-      value: "left"
-      type: PROPERTY_TYPE_HASH
-    }
-  }
-  component_properties {
-    id: "move_right"
-    properties {
-      id: "event"
-      value: "/go#on_right_pressed"
-      type: PROPERTY_TYPE_URL
-    }
-    properties {
-      id: "E"
-      value: "true"
-      type: PROPERTY_TYPE_BOOLEAN
-    }
-    properties {
-      id: "speed_val"
-      value: "100.0"
+      id: "x_val"
+      value: "50.0"
       type: PROPERTY_TYPE_NUMBER
     }
     properties {
-      id: "target_self"
-      value: "true"
-      type: PROPERTY_TYPE_BOOLEAN
-    }
-  }
-  component_properties {
-    id: "move_left"
-    properties {
-      id: "event"
-      value: "/go#on_left_pressed"
-      type: PROPERTY_TYPE_URL
-    }
-    properties {
-      id: "W"
-      value: "true"
-      type: PROPERTY_TYPE_BOOLEAN
-    }
-    properties {
-      id: "speed_val"
-      value: "100.0"
+      id: "y_val"
+      value: "700.0"
       type: PROPERTY_TYPE_NUMBER
-    }
-    properties {
-      id: "target_self"
-      value: "true"
-      type: PROPERTY_TYPE_BOOLEAN
-    }
-  }
-  component_properties {
-    id: "move_down"
-    properties {
-      id: "event"
-      value: "/go#on_down_pressed"
-      type: PROPERTY_TYPE_URL
-    }
-    properties {
-      id: "S"
-      value: "true"
-      type: PROPERTY_TYPE_BOOLEAN
-    }
-    properties {
-      id: "speed_val"
-      value: "100.0"
-      type: PROPERTY_TYPE_NUMBER
-    }
-    properties {
-      id: "target_self"
-      value: "true"
-      type: PROPERTY_TYPE_BOOLEAN
-    }
-  }
-  component_properties {
-    id: "move_up"
-    properties {
-      id: "event"
-      value: "/go#on_up_pressed"
-      type: PROPERTY_TYPE_URL
-    }
-    properties {
-      id: "N"
-      value: "true"
-      type: PROPERTY_TYPE_BOOLEAN
-    }
-    properties {
-      id: "speed_val"
-      value: "100.0"
-      type: PROPERTY_TYPE_NUMBER
-    }
-    properties {
-      id: "target_self"
-      value: "true"
-      type: PROPERTY_TYPE_BOOLEAN
-    }
-  }
-  component_properties {
-    id: "on_right_pressed"
-    properties {
-      id: "action_id"
-      value: "right"
-      type: PROPERTY_TYPE_HASH
-    }
-  }
-  component_properties {
-    id: "on_up_pressed"
-    properties {
-      id: "action_id"
-      value: "up"
-      type: PROPERTY_TYPE_HASH
-    }
-  }
-  component_properties {
-    id: "on_down_pressed"
-    properties {
-      id: "action_id"
-      value: "down"
-      type: PROPERTY_TYPE_HASH
     }
   }
   scale3 {
@@ -299,3 +32,104 @@ embedded_instances {
     z: 1.0
   }
 }
+instances {
+  id: "point1"
+  prototype: "/main/point.go"
+  position {
+    x: 1000.0
+    y: 600.0
+    z: 0.1
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+instances {
+  id: "point2"
+  prototype: "/main/point.go"
+  position {
+    x: 1000.0
+    y: 200.0
+    z: 0.1
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+instances {
+  id: "point3"
+  prototype: "/main/point.go"
+  position {
+    x: 280.0
+    y: 600.0
+    z: 0.1
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+instances {
+  id: "point4"
+  prototype: "/main/point.go"
+  position {
+    x: 280.0
+    y: 200.0
+    z: 0.1
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+instances {
+  id: "point5"
+  prototype: "/main/point.go"
+  position {
+    x: 640.0
+    y: 600.0
+    z: 0.1
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+scale_along_z: 0

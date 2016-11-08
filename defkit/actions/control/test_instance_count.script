@@ -1,0 +1,32 @@
+local lookup = require("defkit.internal.lookup")
+
+go.property("event", msg.url())
+
+go.property("type", hash(""))
+
+go.property("count_val", 0)
+go.property("count_var", hash(""))
+
+--- Since we don't have enums, use sort value selection.
+go.property("comparer", 0)
+
+function on_message(self, message_id, message, sender)
+	if sender == self.event then
+		local compare_count = lookup.get_variable(self.count_var, self.count_val)
+		local objects = lookup.get_objects_by_type(self.type)
+		local object_count = #objects
+
+		local match = false
+		if self.comparer == 0 and object_count == compare_count then
+			match = true
+		elseif self.comparer == -1 and object_count < compare_count then
+			match = true
+		elseif self.comparer == 1 and object_count > compare_count then
+			match = true
+		end
+
+		if match then
+			msg.post(".", "do_actions")
+		end
+	end
+end

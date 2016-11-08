@@ -1,0 +1,17 @@
+local lookup = require("defkit.internal.lookup")
+
+go.property("event", msg.url())
+
+go.property("sides_val", 1)
+go.property("sides_var", hash(""))
+
+function on_message(self, message_id, message, sender)
+	if sender == self.event then
+		local sides_count = lookup.get_variable(self.sides_var, self.sides_val)
+
+		local chance = 1 / sides_count
+		if math.random() <= chance then
+			msg.post(".", "do_actions")
+		end
+	end
+end

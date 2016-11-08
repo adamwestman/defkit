@@ -1,6 +1,6 @@
 go.property("collision_group", hash("default"))
 
-function on_message(self, message_id, message, self)
+function on_message(self, message_id, message, sender)
 	if message_id == hash("collision_response") then
 		if message.group == self.collision_group then
 			msg.post(".", "do_actions", {other=message.other_id})

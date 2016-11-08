@@ -1,4 +1,4 @@
---local lookup = require("defkit.internal.lookup")
+local lookup = require("defkit.internal.lookup")
 
 --- DEFAULT ACTION PROPERTIES
 go.property("event", msg.url())
@@ -6,18 +6,26 @@ go.property("event", msg.url())
 --- CUSTOM ACTION PROPERTIES
 go.property("factory", msg.url())
 
-go.property("position_var", hash("WIP"))
-go.property("position_val", vmath.vector3())
+go.property("x_var", hash(""))
+go.property("x_val", 0)
+
+go.property("y_var", hash(""))
+go.property("y_val", 0)
+
 go.property("relative", false)
 
---- TARGETTING PROPERTIES
---go.property("target_self", false)
---go.property("target_other", false)
---go.property("target_type", hash(""))
+local function get_position(self)
+	local x_value = lookup.get_variable(self.x_var, self.x_val)
+	local y_value = lookup.get_variable(self.y_var, self.y_val)
+
+	local target_pos = vmath.vector3(x_value, y_value, 0)
+
+	return target_pos
+end
 
 function on_message(self, message_id, message, sender)
 	if sender == self.event then
-		local position = vmath.vector3(self.position_val)
+		local position = get_position(self)
 		if self.relative then
 			position = position + go.get_world_position()
 		end
