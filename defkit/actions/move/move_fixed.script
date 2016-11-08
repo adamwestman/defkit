@@ -12,8 +12,9 @@ go.property("E", false)
 go.property("SW", false)
 go.property("S", false)
 go.property("SE", false)
+go.property("NONE", false)
 
-go.property("speed_var", hash("WIP"))
+go.property("speed_var", hash(""))
 go.property("speed_val", 0)
 go.property("relative", false)
 
@@ -55,6 +56,10 @@ function init(self)
 
 	if self.SE then
 		table.insert(directions, vmath.vector3(1, -1, 0))
+	end
+
+	if self.NONE then
+		table.insert(directions, vmath.vector3(0, 0, 0))
 	end
 
 	self.directions = directions

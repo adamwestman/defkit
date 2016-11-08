@@ -7,7 +7,7 @@ go.property("relative", false)
 
 function on_message(self, message_id, message, sender)
 	if sender == self.event then
-		local value = self.score		
+		local value = self.score
 		if self.relative then
 			value = value + lookup.get_variable(hash("score"), 0)
 		end

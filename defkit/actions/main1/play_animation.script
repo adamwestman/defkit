@@ -1,0 +1,14 @@
+--local lookup = require("defkit.internal.lookup")
+
+--- DEFAULT ACTION PROPERTIES
+go.property("event", msg.url())
+
+--- CUSTOM ACTION PROPERTIES
+go.property("sprite", msg.url("#sprite"))
+go.property("animation_id", hash(""))
+
+function on_message(self, message_id, message, sender)
+	if sender == self.event then
+		msg.post(self.sprite, "play_animation", {id=self.animation_id})
+	end
+end

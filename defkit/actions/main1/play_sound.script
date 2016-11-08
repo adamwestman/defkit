@@ -1,0 +1,19 @@
+--local lookup = require("defkit.internal.lookup")
+
+--- DEFAULT ACTION PROPERTIES
+go.property("event", msg.url())
+
+--- CUSTOM ACTION PROPERTIES
+go.property("sound", msg.url("#sound"))
+go.property("delay_val", 0)
+go.property("delay_var", hash(""))
+go.property("gain_val", 1)
+go.property("gain_var", hash(""))
+
+function on_message(self, message_id, message, sender)
+	if sender == self.event then
+		local delay_value = lookup.get_variable(self.delay_var, self.delay_val)
+		local gain_value = lookup.get_variable(self.gain_var, self.gain_val)
+		msg.post(self.sound, "play_sound", {delay = delay_value, gain = gain_value})
+	end
+end
