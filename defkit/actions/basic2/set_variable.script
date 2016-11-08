@@ -1,0 +1,20 @@
+local lookup = require("defkit.internal.lookup")
+
+go.property("event", msg.url())
+
+go.property("name", hash(""))
+
+go.property("value_val", 0)
+go.property("value_var", hash(""))
+
+go.property("relative", false)
+
+function on_message(self, message_id, message, sender)
+	if sender == self.event then
+		local value = lookup.get_variable(self.value_var, self.value_val)
+		if self.relative then
+			value = value + lookup.get_variable(self.name, 0)
+		end
+		lookup.set_variable(self.name, value)
+	end
+end
