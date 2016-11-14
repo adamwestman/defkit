@@ -3,7 +3,8 @@ Component based scripts for [Defold](www.defold.com) engine inspired by the  [Ga
 
 ---
 
-## [Events]((https://docs.yoyogames.com/source/dadiospice/000_using%20gamemaker/events/index.html)
+
+## [Events](https://docs.yoyogames.com/source/dadiospice/000_using%20gamemaker/events/index.html)
 Events are input from different sources to which you can react and connect one or many actions. These range from user-input such as keys being pressed, instance lifecycle such as create and destroy, or collision betwen different instances to name a few.
 
 ### General
@@ -27,6 +28,7 @@ These script allow users to connect logic to events related to time, either user
 
 * on_alarm : invoked when the set amount of seconds have passed since the user-defined timer was started.
 * on_Step : invoked each cycle/frame.
+
 
 
 ## [Actions](https://docs.yoyogames.com/source/dadiospice/000_using%20gamemaker/actions/index.html)
