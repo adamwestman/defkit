@@ -68,3 +68,8 @@ The actions let the user change position over time for targetted object, if set 
 
 
 ## Examples
+
+### Properties
+![properties example](https://github.com/adamwestman/defkit/blob/master/properties.png "Properties example")
+
+This example display a number of DefKit scripts along with Defold components Sprite and Collision Object, which together create an object that can move and on collision with "point" objects destroy them.
