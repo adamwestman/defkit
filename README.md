@@ -3,7 +3,7 @@ Component based scripts for [Defold](www.defold.com) engine inspired by the  [Ga
 
 ---
 
-## Events
+## [Events]((https://docs.yoyogames.com/source/dadiospice/000_using%20gamemaker/events/index.html)
 Events are input from different sources to which you can react and connect one or many actions. These range from user-input such as keys being pressed, instance lifecycle such as create and destroy, or collision betwen different instances to name a few.
 
 ### General
@@ -29,13 +29,17 @@ These script allow users to connect logic to events related to time, either user
 * on_Step : invoked each cycle/frame.
 
 
-## Actions
+## [Actions](https://docs.yoyogames.com/source/dadiospice/000_using%20gamemaker/actions/index.html)
 Actions are small blocks of logic that allow interraction in a multitude of ways; movement, creation and destruction to name a few.
 
 __Shared Information__
+
 Event : All Actions come with an "event" url parameter, this is how you connect which Event is the cause of this Action.
+
 Target : Many but not all Actions also come with a Self, Other or Object Type parameter
+
 Relative: Let the set value be influenced by context based values, depending on Action this could be worl-position or existing velocity among other things.
+
 Variables: Many of the input-values also come with a "Var" option which is short for Variable. These enable passing dynamic values, either predefined or controlled using set_variable.
 
 ### Basic
