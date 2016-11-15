@@ -15,9 +15,9 @@ function on_message(self, message_id, message, sender)
 		elseif self.target_other and message.other then
 			go.delete(message.other)
 		elseif self.target_type ~= hash("") then
-			local group = lookup.get_objects_by_type(self.target_type)
-			for _,id in pairs(group) do
-				go.delete(id)
+			local objects = lookup.get_objects_by_type(self.target_type)
+			for _,object in pairs(objects) do
+				go.delete(object.id)
 			end
 		end
 	end

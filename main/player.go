@@ -18,9 +18,9 @@ components {
     type: PROPERTY_TYPE_URL
   }
   properties {
-    id: "target_other"
-    value: "true"
-    type: PROPERTY_TYPE_BOOLEAN
+    id: "target_type"
+    value: "point"
+    type: PROPERTY_TYPE_HASH
   }
 }
 components {

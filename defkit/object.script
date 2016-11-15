@@ -1,15 +1,15 @@
---local lookup = require("defkit.internal.lookup")
+local lookup = require("defkit.internal.lookup")
 
-go.property("type", hash("WIP-will-be-used-by-lookup"))
+go.property("type", hash("unknown"))
 
 function init(self)
-	-- lookup.add_object_by_type(self.type, go.get_id())
-	
+	lookup.add_object_by_type(self.type, go.get_id())
+
 	self.velocity = vmath.vector3(0)
 end
 
 function final(self)
-	-- lookup.remove_object(go.get_id())
+	lookup.remove_object(go.get_id())
 end
 
 function update(self, dt)
@@ -26,6 +26,12 @@ function on_message(self, message_id, message, sender)
 			self.velocity = message.velocity + self.velocity
 		else
 			self.velocity = message.velocity
-		end	
+		end
+	elseif message_id == hash("set_position") then
+		local new_pos = message.position
+		if message.relative then
+			new_pos = new_pos + go.get_position()
+		end
+		go.set_position(new_pos)
 	end
 end

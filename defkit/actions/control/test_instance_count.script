@@ -14,7 +14,10 @@ function on_message(self, message_id, message, sender)
 	if sender == self.event then
 		local compare_count = lookup.get_variable(self.count_var, self.count_val)
 		local objects = lookup.get_objects_by_type(self.type)
-		local object_count = #objects
+		local object_count = 0
+		for _,_ in pairs(objects) do
+			object_count = object_count + 1
+		end
 
 		local match = false
 		if self.comparer == 0 and object_count == compare_count then

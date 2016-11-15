@@ -18,7 +18,7 @@ go.property("target_type", hash(""))
 
 local function get_force(self)
 	local rotation_value = lookup.get_variable(self.direction_var, self.direction_val)
-	local direction = vmath.vector3(math.sin(rotation_value), math.cos(rotation_value), 0)
+	local direction = vmath.vector3(math.cos(rotation_value), math.sin(rotation_value), 0)
 
 	local speed_value = lookup.get_variable(self.speed_var, self.speed_val)
 	return direction * speed_value
@@ -30,11 +30,11 @@ function on_message(self, message_id, message, sender)
 		if self.target_self then
 			msg.post(".", "set_movement", {velocity=velocity, relative=self.relative})
 		elseif self.target_other and message.other then
-			msg.post(msg.url(nil, message.other), "set_movement", {velocity=velocity, relative=self.relative})
+			msg.post(message.other, "set_movement", {velocity=velocity, relative=self.relative})
 		elseif self.target_type ~= hash("") then
-			local group = {} --lookup.get_objects_by_type(self.target_type)
-			for _,id in pairs(group) do
-				msg.post(msg.url(nil, id), "set_movement", {velocity=velocity, relative=self.relative})
+			local objects = lookup.get_objects_by_type(self.target_type)
+			for _,object in pairs(objects) do
+				msg.post(object.url, "set_movement", {velocity=velocity, relative=self.relative})
 			end
 		end
 	end

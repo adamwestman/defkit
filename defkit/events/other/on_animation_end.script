@@ -3,6 +3,8 @@ go.property("animation_id", hash(""))
 function on_message(self, message_id, message, sender)
 	-- check for animation done response
 	if message_id == hash("animation_done") then
-		msg.post(".", "do_actions")
+		if message.id == self.animation_id then
+			msg.post(".", "do_actions")
+		end
 	end
 end

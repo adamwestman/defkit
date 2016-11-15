@@ -32,11 +32,11 @@ function on_message(self, message_id, message, sender)
 		if self.target_self then
 			msg.post(".", "set_position", {position=position, relative=self.relative})
 		elseif self.target_other and message.other then
-			msg.post(msg.url(nil, message.other), "set_position", {position=position, relative=self.relative})
+			msg.post(message.other, "set_position", {position=position, relative=self.relative})
 		elseif self.target_type ~= hash("") then
-			local group = {} --lookup.get_objects_by_type(self.target_type)
-			for _,id in pairs(group) do
-				msg.post(msg.url(nil, id), "set_position", {position=position, relative=self.relative})
+			local objects = lookup.get_objects_by_type(self.target_type)
+			for _,object in pairs(objects) do
+				msg.post(object.url, "set_position", {position=position, relative=self.relative})
 			end
 		end
 	end
