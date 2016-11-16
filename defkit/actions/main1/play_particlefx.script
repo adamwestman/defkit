@@ -1,0 +1,13 @@
+--local lookup = require("defkit.internal.lookup")
+
+--- DEFAULT ACTION PROPERTIES
+go.property("event", msg.url())
+
+--- CUSTOM ACTION PROPERTIES
+go.property("particles", msg.url("#particlefx"))
+
+function on_message(self, message_id, message, sender)
+	if sender == self.event then
+		particlefx.play(self.particles)
+	end
+end

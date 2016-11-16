@@ -1,0 +1,53 @@
+local lookup = require("defkit.internal.lookup")
+
+--- DEFAULT ACTION PROPERTIES
+go.property("event", msg.url())
+
+--- CUSTOM ACTION PROPERTIES
+go.property("spine_model", msg.url("#spine"))
+go.property("animation_id", hash(""))
+
+go.property("playback_once_forward", true)
+go.property("playback_once_backward", false)
+go.property("playback_once_pingpong", false)
+go.property("playback_loop_forward", false)
+go.property("playback_loop_backward", false)
+go.property("playback_loop_pingpong", false)
+
+go.property("blend_duration_val", 0)
+go.property("blend_duration_var", hash(""))
+
+
+local function get_playback_value(self)
+		if self.playback_once_forward then
+			return go.PLAYBACK_ONCE_FORWARD
+
+		elseif self.playback_once_backward then
+			return go.PLAYBACK_LOOP_FORWARD
+
+		elseif self.playback_once_pingpong then
+			return go.PLAYBACK_LOOP_FORWARD
+
+		elseif self.playback_loop_forward then
+			return go.PLAYBACK_LOOP_FORWARD
+
+		elseif self.playback_loop_backward then
+			return go.PLAYBACK_LOOP_FORWARD
+
+		elseif self.playback_loop_pingpong then
+			return go.PLAYBACK_LOOP_FORWARD
+		end
+
+		return go.PLAYBACK_ONCE_FORWARD
+end
+
+function init(self)
+	self.playback_value = get_playback_value(self)
+end
+
+function on_message(self, message_id, message, sender)
+	if sender == self.event then
+		local blend_duration_value = lookup.get_variable(self.blend_duration_var, self.blend_duration_val)
+		spine.play(self.spine_model, self.animation_id, self.playback_value, blend_duration_value)
+	end
+end

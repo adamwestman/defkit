@@ -1,4 +1,4 @@
---local lookup = require("defkit.internal.lookup")
+local lookup = require("defkit.internal.lookup")
 
 --- DEFAULT ACTION PROPERTIES
 go.property("event", msg.url())
