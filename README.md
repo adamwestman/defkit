@@ -1,8 +1,22 @@
 # DefKit
-Component based scripts for [Defold](www.defold.com) engine inspired by the  [Game Maker](http://www.yoyogames.com/gamemaker) studio visual scripting.
+A Component based scripts library for [Defold](www.defold.com) engine inspired by the  [Game Maker](http://www.yoyogames.com/gamemaker) studio visual scripting.
 
 ---
 
+# Usage
+1. Add latest zip URL as a [dependency](http://www.defold.com/manuals/libraries/#_setting_up_library_dependencies) in your Defold project: `https://github.com/adamwestman/defkit/archive/master.zip`
+
+2. Add the [object.script](https://github.com/adamwestman/defkit/blob/master/defkit/object.script) to your Game Object
+
+3. Add an Event scripts to your Game Object
+
+4. Add an Action scripts to your Game Object
+
+5. Select the Action script and point its event url at the Event script
+
+---
+
+# Docs
 
 ## [Events](https://docs.yoyogames.com/source/dadiospice/000_using%20gamemaker/events/index.html)
 Events are input from different sources to which you can react and connect one or many actions. These range from user-input such as keys being pressed, instance lifecycle such as create and destroy, or collision betwen different instances to name a few.
