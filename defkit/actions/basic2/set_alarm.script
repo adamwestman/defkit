@@ -5,8 +5,8 @@ go.property("seconds", 0)
 
 go.property("anim_param_dont_touch", 0)
 
-local function invoke_alarm(self)
-	msg.post(",", "invoke_alarm", {alarm_nr=alarm_nr})
+local function invoke_alarm(self, url, property)
+	msg.post(".", "invoke_alarm", {alarm_nr=self.alarm_nr})
 end
 
 function on_message(self, message_id, message, sender)

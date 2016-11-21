@@ -13,7 +13,11 @@ function final(self)
 end
 
 function update(self, dt)
-	if vmath.length_sqr(self.velocity) > 0 then
+	if self.gravity and vmath.length_sqr(self.gravity) > 0.01 then
+		self.velocity = self.velocity + self.gravity * dt
+	end
+
+	if vmath.length_sqr(self.velocity) > 0.01 then
 		local pos = go.get_position()
 		pos = pos + self.velocity * dt
 		go.set_position(pos)
@@ -33,5 +37,12 @@ function on_message(self, message_id, message, sender)
 			new_pos = new_pos + go.get_position()
 		end
 		go.set_position(new_pos)
+	elseif message_id == hash("set_gravity") then
+		local gravity = message.velocity
+		if message.relative and self.gravity then
+			self.gravity = self.gravity + gravity
+		else
+			self.gravity = gravity
+		end
 	end
 end

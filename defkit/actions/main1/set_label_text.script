@@ -1,0 +1,15 @@
+local lookup = require("defkit.internal.lookup")
+
+go.property("event", msg.url())
+
+go.property("label", msg.url("#label"))
+
+go.property("value_val", 0)
+go.property("value_var", hash(""))
+
+function on_message(self, message_id, message, sender)
+	if sender == self.event then
+		local text_value = lookup.get_variable(self.value_var, self.value_val)
+	 	label.set_text(self.label, tostring(text_value))
+	end
+end

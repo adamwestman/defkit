@@ -29,13 +29,13 @@ function on_message(self, message_id, message, sender)
 	if sender == self.event then
 		local velocity = get_force(self)
 		if self.target_self then
-			msg.post(".", "set_movement", {velocity=velocity, relative=self.relative})
+			msg.post(".", "set_gravity", {velocity=velocity, relative=self.relative})
 		elseif self.target_other and message.other then
-			msg.post(message.other, "set_movement", {velocity=velocity, relative=self.relative})
+			msg.post(message.other, "set_gravity", {velocity=velocity, relative=self.relative})
 		elseif self.target_type ~= hash("") then
 			local objects = lookup.get_objects_by_type(self.target_type)
 			for _,object in pairs(objects) do
-				msg.post(object.url, "set_movement", {velocity=velocity, relative=self.relative})
+				msg.post(object.url, "set_gravity", {velocity=velocity, relative=self.relative})
 			end
 		end
 	end
