@@ -5,6 +5,8 @@ local dynamic_variables = {}
 local objects_by_id = {}
 local objects_by_type_id = {}
 
+local room_controller
+
 local EMPTY_HASH = hash("")
 
 function M.add_object_by_type(object_type, game_object_id)
@@ -62,6 +64,15 @@ function M.get_variable(hashed, default_value)
 	end
 
 	return default_value
+end
+
+function M.set_room_controller(url)
+	assert(url)
+	room_controller = url
+end
+
+function M.get_room_controller()
+	return room_controller
 end
 
 return M

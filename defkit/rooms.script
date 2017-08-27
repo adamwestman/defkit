@@ -1,0 +1,55 @@
+local lookup = require "defkit.internal.lookup"
+
+local function load(id)
+	msg.post("#room"..id, "load")	
+end
+
+local function unload(id)
+	msg.post("#room"..id, "unload")
+end
+
+function init(self)
+	lookup.set_room_controller(msg.url())
+	
+	msg.post(".", "acquire_input_focus")
+	
+	self.current = 0
+	load(self.current)
+end
+
+function on_message(self, message_id, message, sender)
+	if message_id == hash("proxy_loaded") then
+		msg.post(sender, "enable")
+		
+	elseif message_id == hash("proxy_unloaded") then
+		if self.restart then
+			load(self.current)
+			self.restart = false	
+		end
+	
+elseif message_id == hash("restart") then
+		self.restart = true
+		unload(self.current)
+		
+	elseif message_id == hash("next") then
+		unload(self.current)
+		self.current = self.current +1
+		load(self.current)
+		
+	elseif message_id == hash("previous") then
+		assert(self.current > 0, "You can not navigate further backwards")
+		
+		unload(self.current)
+		self.current = self.current -1
+		load(self.current)
+		
+	elseif message_id == hash("go_to") then
+		assert(message.number)
+		assert(message.number >= 0, "Room number can not be negative")
+		
+		unload(self.current)
+		self.current = message.number
+		load(self.current)
+	end
+		
+end

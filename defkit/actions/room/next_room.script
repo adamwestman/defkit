@@ -1,0 +1,12 @@
+local lookup = require("defkit.internal.lookup")
+
+--- DEFAULT ACTION PROPERTIES
+go.property("event", msg.url())
+
+--- CUSTOM ACTION PROPERTIES
+
+function on_message(self, message_id, message, sender)
+	if sender == self.event then
+		msg.post(lookup.get_room_controller(), "next")
+	end
+end
